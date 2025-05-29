@@ -35,12 +35,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{matrix.node_version}}
-
-      
-
+          
       # Runs a single command using the runners shell
       - name: Run cmd to install dependencies
-        run: npm install
+        run: npm ci
 
       - name: buid project
         run: npm run build
