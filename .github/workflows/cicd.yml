@@ -29,10 +29,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: add node 
-      - uses: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: ${{matrix.node_version}}
 
@@ -40,13 +40,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run cmd to install dependencies
-        run: npm i
+        run: npm install
 
       - name: buid project
         run: npm run build
         
       - name: upload artifact
-      - uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: nodeTestProd
           path: ./dist
@@ -58,7 +58,7 @@ jobs:
 
     steps: 
       - name: download artifact
-      - uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4
         with:
           name: nodeTestProd
     
